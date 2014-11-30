@@ -1,0 +1,8 @@
+# Greg
+greg@lamecompany.com
+
+# Sam
+sam@lamecompany.com
+
+# Bob from Marketing
+bob@marketing.lamecompany.com
