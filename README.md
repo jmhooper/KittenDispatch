@@ -5,8 +5,9 @@ Kitten dispatch is a tool for downloading cat pictures from reddit and emailing 
 ## Getting Started
 
 1. Clone the project
-2. Setup the `environment.rb` and `whitelist.txt` files. Look at the `environment.example.rb` and `whitelist.example.txt` files for examples
-3. Run kitten dispatch with `ruby kitten_dispatch.rb`
+2. Bundle with `bundle install`
+3. Setup the `environment.rb` and `whitelist.txt` files. Look at the `environment.example.rb` and `whitelist.example.txt` files for examples
+4. Run kitten dispatch with `ruby kitten_dispatch.rb`
 
 ## How it works
 
