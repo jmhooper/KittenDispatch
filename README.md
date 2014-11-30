@@ -19,4 +19,6 @@ I get pictures from [r/cats](www.reddit.com/r/cats).
 I would suggest checking out [r/CatGifs](www.reddit.com/r/CatGifs) or [r/LolCats](www.reddit.com/r/LolCats) as well.
 You can change which subreddit the pictures are loaded from by setting the `KITTEN_LOADER_SUBREDDIT` environment variable in your environment.rb file.
 
-I have mine on setup a cron task to email me and my friends everyday at 3:00 PM since that is usually the most stressful part of our day.
+I have mine on setup on a cron task to email me and my friends everyday at 3:00 PM since that is usually the most stressful part of our day.
+
+![Cat Pic](http://i.imgur.com/FgX7raR.jpg)
