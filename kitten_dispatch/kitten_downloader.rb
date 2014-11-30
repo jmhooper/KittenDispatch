@@ -62,5 +62,3 @@ module KittenDispatch
     
   end
 end
-
-KittenDispatch::KittenDownloader.download_kitten(save_path: "/tmp/kitten", subreddit: "cats")
