@@ -10,7 +10,7 @@ Kitten dispatch is a tool for downloading cat pictures from reddit and emailing 
 
 ## How it works
 
-Kitten dispatch finds the top picture on a certain subreddit and emails it to all of the address specified in your `whitelist.txt` file.
+Kitten dispatch finds the top picture on a certain subreddit and emails it to all of the addresses specified in your `whitelist.txt` file.
 Emailing is acheived with the ActionMailer gem.
 You can modifiy the action mailer SMTP settings in your `environment.rb` file to use your email address.
 
