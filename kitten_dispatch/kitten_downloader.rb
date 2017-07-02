@@ -1,41 +1,43 @@
 require "json"
-require "net/http"
+require "net/https"
 require "open-uri"
 
 module KittenDispatch
   class KittenDownloader
-    
+
     def self.download_kitten(hash)
       # Load the values from the hash
       filepath = hash[:save_path]
       subreddit = hash[:subreddit]
-      
+
       # Create and execute request for the JSON
-      response = nil
-      Net::HTTP.start("www.reddit.com") do |http|
-        response = http.get("/r/#{subreddit}.json")
-      end
-      
-      # Parse the JSON and iterate over the posts to find a valid one      
+      uri = URI("https://www.reddit.com/r/#{subreddit}.json")
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      request = Net::HTTP::Get.new(uri)
+      request['User-Agent'] = 'KittenDispatch'
+      response = http.request request
+
+      # Parse the JSON and iterate over the posts to find a valid one
       result = JSON.parse(response.body)
-      
+
       # Find the post from the json
       post = self.post_from_json(result)
-      
+
       # Download the image
       filepath = filepath + File.extname(post[:url])
       self.download_kitten_image(post[:url], filepath)
-      
+
       # Return the post hash
       { caption: post[:title], filepath: filepath }
     end
-    
+
     private
-    
+
     def self.post_from_json(json)
       # Create a hash to return
       post = Hash.new
-      
+
       # Iterate until a valid post is found
       json['data']['children'].each do |post_json|
         if ['.png', '.jpg', '.jpeg', '.gif'].include? File.extname(post_json['data']['url'])
@@ -45,11 +47,11 @@ module KittenDispatch
           break
         end
       end
-      
+
       # Return the post
       post
     end
-    
+
     def self.download_kitten_image(url, save_path)
       # Open the file
       File.open(save_path, 'wb') do |save_file|
@@ -59,6 +61,6 @@ module KittenDispatch
         end
       end
     end
-    
+
   end
 end
